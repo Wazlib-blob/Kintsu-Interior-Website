@@ -3,21 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Security headers -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://form.jotform.com https://js.jotform.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https:;
-    frame-src https://form.jotform.com;
-    connect-src 'self' https://form.jotform.com https://submit.jotform.com;
-    object-src 'none';
-    base-uri 'self';
-  " />
+  <!-- Security headers are delivered via HTTP response headers (see vercel.json) for stronger enforcement than meta tags. -->
   <title>Kintsu Interior Studio — Singapore Interior Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -558,7 +544,7 @@
         </div>
       </div>
       <div class="testimonials-cta">
-        <a href="https://www.google.com/search?q=kintsu+interior&oq=kintsu+interior&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDwyBggCEEUYPDIGCAMQRRg80gEIMjcwMWowajSoAgCwAgE&sourceid=chrome&ie=UTF-8#" target="_blank" rel="noopener noreferrer" class="btn-outline-dark">View All Reviews</a>
+        <a href="https://www.google.com/search?q=kintsu+interior&oq=kintsu+interior&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDwyBggCEEUYPDIGCAMQRRg80gEIMjcwMWowajSoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" class="btn-outline-dark">View All Reviews</a>
       </div>
     </div>
   </section>

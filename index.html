@@ -212,7 +212,7 @@
 
     /* FOOTER */
     .footer { background: var(--black); color: var(--white); padding: 72px 0 0; }
-    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.6fr 1.2fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1.4fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .footer-logo { font-family: var(--font-serif); font-size: 28px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
     .footer-logo span { color: var(--gold); }
     .footer-tagline { font-size: 12px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
@@ -244,6 +244,7 @@
       .about-inner { gap: 48px; }
       .contact-grid { gap: 48px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-grid > div:last-child { grid-column: 1 / -1; }
       .process-steps { grid-template-columns: repeat(2, 1fr); }
       .process-step:nth-child(1) { border-left: none; }
       .process-step:nth-child(3) { border-left: none; }
@@ -720,17 +721,6 @@
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Explore</div>
-          <div class="footer-links">
-            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">About Us</a>
-            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Our Projects</a>
-            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Styles</a>
-            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">The Team</a>
-            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Accreditations</a>
-            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Journal</a>
-          </div>
-        </div>
-        <div>
           <div class="footer-col-title">Enquire</div>
           <div class="footer-enquire-item">
             <div class="footer-enquire-label">Phone / WhatsApp</div>
@@ -774,26 +764,16 @@
           </div>
         </div>
         <div>
-          <div class="footer-col-title">Subscribe</div>
-          <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:20px;">Project spotlights, renovation tips, and design ideas — delivered to your inbox.</p>
-          <div class="newsletter-field">
-            <input type="email" placeholder="Your email address" />
-            <button>Subscribe</button>
-          </div>
-          <!-- Kintsu contact CTA -->
-          <div style="margin-top:32px;padding:20px;border:1px solid rgba(201,162,39,0.3);">
-            <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#c9a227;margin-bottom:8px;">Free Consultation</div>
-            <div style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:14px;">Comment "KEYS" to meet one of our IDs today.</div>
+          <div class="footer-col-title">Get In Touch</div>
+          <div style="padding:24px;border:1px solid rgba(201,162,39,0.3);">
+            <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#c9a227;margin-bottom:10px;">Free Consultation</div>
+            <div style="font-size:14px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:18px;">Speak to one of our designers today — no obligation, just a conversation about your space.</div>
             <a href="https://wa.me/6580172916" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c9a227;border-bottom:1px solid rgba(201,162,39,0.4);padding-bottom:2px;">WhatsApp Us →</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-bottom-copy">© 2025 Kintsu Interior Studio Pte Ltd · Singapore</div>
-        <div class="footer-bottom-links">
-          <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-          <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Disclaimer</a>
-        </div>
+        <div class="footer-bottom-copy">© 2026 Kintsu Interior Studio Pte Ltd · Singapore</div>
       </div>
     </div>
   </footer>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Security headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://form.jotform.com https://js.jotform.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    frame-src https://form.jotform.com;
+    connect-src 'self' https://form.jotform.com https://submit.jotform.com;
+    object-src 'none';
+    base-uri 'self';
+  " />
+  <title>Kintsu Interior Studio — Singapore Interior Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+    :root {
+      --black:      #111111;
+      --white:      #ffffff;
+      --off-white:  #f8f6f3;
+      --cream:      #f2ede8;
+      --gray-light: #e8e4df;
+      --gray-mid:   #9a9690;
+      --gray-dark:  #4a4845;
+      --gold:       #c4a882;
+      --gold-dark:  #a8895f;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Montserrat', system-ui, sans-serif;
+      --nav-h: 70px;
+      --max-w: 1280px;
+    }
+
+    body { font-family: var(--font-sans); color: var(--black); background: var(--white); font-size: 14px; line-height: 1.7; font-weight: 300; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--black); height: var(--nav-h); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: var(--font-serif); font-size: 26px; font-weight: 400; color: var(--white); letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-logo span { color: var(--gold); }
+    .nav-contact-btn { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.35); padding: 9px 24px; transition: background 0.25s, border-color 0.25s, color 0.25s; }
+    .nav-contact-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+    /* HERO */
+    .hero { margin-top: var(--nav-h); position: relative; height: calc(100vh - var(--nav-h)); min-height: 600px; overflow: hidden; }
+    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+    .slide.active { opacity: 1; }
+    .slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.04); transition: transform 7s ease; }
+    .slide.active .slide-bg { transform: scale(1); }
+    .slide-bg-1 { background-image: url('portfolio_111C_thumbnail.jpg'); background-size: cover; background-position: center; }
+    .slide-bg-2 { background-image: url('portfolio_302A_thumbnail.jpg'); background-size: cover; background-position: center; }
+    .slide-bg-3 { background-image: url('portfolio_132A_thumbnail.png'); background-size: cover; background-position: center; }
+    .slide-bg-4 { background-image: url('portfolio_61B_thumbnail.png'); background-size: cover; background-position: center; }
+    .slide-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.05) 100%); }
+    .slide-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 0 80px 80px; max-width: 680px; color: var(--white); }
+    .slide-label { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+    .slide-title { font-family: var(--font-serif); font-size: 58px; font-weight: 300; line-height: 1.1; margin-bottom: 16px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+    .slide-desc { font-size: 13px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.82); margin-bottom: 28px; max-width: 480px; }
+    .link-arrow { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 3px; transition: color 0.2s, border-color 0.2s; }
+    .link-arrow:hover { color: var(--gold); border-color: var(--gold); }
+    .link-arrow::after { content: '→'; font-size: 13px; }
+    .slider-dots { position: absolute; bottom: 40px; right: 60px; display: flex; gap: 10px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .dot.active { background: var(--gold); transform: scale(1.3); }
+    .slider-prev, .slider-next { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: white; font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, border-color 0.2s; z-index: 10; }
+    .slider-prev { left: 30px; }
+    .slider-next { right: 30px; }
+    .slider-prev:hover, .slider-next:hover { background: var(--gold); border-color: var(--gold); }
+
+    /* ABOUT */
+    .about { padding: 100px 0; background: var(--white); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 18px; }
+    .section-title { font-family: var(--font-serif); font-size: 44px; font-weight: 300; line-height: 1.2; margin-bottom: 24px; color: var(--black); }
+    .section-body { font-size: 13px; font-weight: 300; line-height: 1.9; color: var(--gray-dark); margin-bottom: 20px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--black); border-bottom: 1px solid var(--black); padding-bottom: 4px; transition: color 0.2s, border-color 0.2s; margin-top: 16px; }
+    .btn-cta::after { content: '→'; font-size: 14px; }
+    .btn-cta:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+    .about-image { aspect-ratio: 4/5; background: var(--cream); overflow: hidden; }
+    .about-image-inner { width: 100%; height: 100%; }
+    .about-image-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* AWARDS STRIP */
+    .awards-strip { margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--gray-light); }
+    .awards-strip-label { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 24px; }
+    .awards-badges { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .award-badge { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .award-badge-icon { width: 90px; height: 90px; object-fit: contain; }
+    .award-badge-label { font-size: 9px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-dark); text-align: center; line-height: 1.4; max-width: 80px; }
+    .award-badge-wide { width: 140px; height: auto; border-radius: 4px; }
+
+    /* SECTION HEADER */
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header .section-eyebrow { display: block; margin-bottom: 14px; }
+    .section-header .section-title { font-size: 42px; }
+    .section-divider { width: 40px; height: 1px; background: var(--gold); margin: 20px auto 0; }
+
+    /* PROJECTS */
+    .projects { padding: 80px 0 100px; background: var(--off-white); }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .project-card { position: relative; overflow: hidden; cursor: pointer; background: var(--white); }
+    .project-card-img { aspect-ratio: 4/3; overflow: hidden; }
+    .project-card-img-inner { width: 100%; height: 100%; transition: transform 0.7s ease; }
+    .project-card-img-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .project-card:hover .project-card-img-inner { transform: scale(1.06); }
+    .ph-warm  { background: linear-gradient(160deg, #d4bfa0 0%, #b09070 100%); }
+    .ph-cool  { background: linear-gradient(160deg, #a0b4c8 0%, #708090 100%); }
+    .ph-green { background: linear-gradient(160deg, #a0b8a0 0%, #607860 100%); }
+    .ph-clay  { background: linear-gradient(160deg, #c8a8a0 0%, #987060 100%); }
+    .ph-sand  { background: linear-gradient(160deg, #c8c0a8 0%, #989080 100%); }
+    .ph-sage  { background: linear-gradient(160deg, #b8c4b0 0%, #889880 100%); }
+    .project-card-body { padding: 24px 26px 28px; background: var(--white); }
+    .project-type { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 8px; }
+    .project-name { font-family: var(--font-serif); font-size: 22px; font-weight: 400; line-height: 1.25; margin-bottom: 10px; transition: color 0.2s; }
+    .project-card:hover .project-name { color: var(--gold-dark); }
+    .project-desc { font-size: 12px; font-weight: 300; line-height: 1.75; color: var(--gray-dark); margin-bottom: 16px; }
+    .project-link { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--black); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .project-link::after { content: '→'; }
+    .project-link:hover { color: var(--gold-dark); border-color: var(--gold-dark); }
+    .projects-cta { text-align: center; margin-top: 60px; }
+    .btn-outline-dark { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid var(--black); padding: 14px 36px; transition: background 0.2s, color 0.2s; }
+    .btn-outline-dark::after { content: '→'; font-size: 14px; }
+    .btn-outline-dark:hover { background: var(--black); color: var(--white); }
+
+    /* QUOTE */
+    .intro-quote { background: var(--black); padding: 90px 0; text-align: center; }
+    .intro-quote blockquote { font-family: var(--font-serif); font-size: 34px; font-weight: 300; font-style: italic; color: var(--white); line-height: 1.5; max-width: 800px; margin: 0 auto 24px; }
+    .intro-quote cite { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 100px 0; background: var(--white); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .testimonial-card { padding: 36px 32px; border: 1px solid var(--gray-light); position: relative; }
+    .testimonial-card::before { content: '"'; font-family: var(--font-serif); font-size: 80px; line-height: 0.7; color: var(--gold); opacity: 0.4; position: absolute; top: 28px; left: 28px; }
+    .testimonial-body { font-family: var(--font-serif); font-size: 16px; font-weight: 400; font-style: italic; line-height: 1.75; color: var(--gray-dark); margin-bottom: 28px; padding-top: 28px; }
+    .testimonial-divider { width: 30px; height: 1px; background: var(--gold); margin-bottom: 16px; }
+    .testimonial-name { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black); margin-bottom: 3px; }
+    .testimonial-project { font-size: 11px; font-weight: 300; color: var(--gray-mid); }
+    .testimonials-cta { text-align: center; margin-top: 56px; }
+
+    /* DESIGNERS */
+    .designers { background: var(--cream); padding: 100px 0; }
+    .designers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .designer-card { position: relative; overflow: hidden; cursor: pointer; }
+    .designer-photo { aspect-ratio: 3/4; overflow: hidden; }
+    .designer-photo-inner { width: 100%; height: 100%; transition: transform 0.6s ease; }
+    .designer-card:hover .designer-photo-inner { transform: scale(1.05); }
+    .designer-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 24px 28px; background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 100%); color: var(--white); }
+    .designer-name { font-family: var(--font-serif); font-size: 22px; font-weight: 400; margin-bottom: 4px; }
+    .designer-style { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .designer-handle { font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 3px; }
+
+    /* PROCESS */
+    .process { padding: 100px 0; background: var(--white); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .process-step { padding: 40px 36px; border-left: 1px solid var(--gray-light); }
+    .process-step:first-child { border-left: none; }
+    .process-num { font-family: var(--font-serif); font-size: 56px; font-weight: 300; color: var(--gray-light); line-height: 1; margin-bottom: 20px; }
+    .process-step-title { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; color: var(--black); }
+    .process-step-body { font-size: 12px; font-weight: 300; line-height: 1.85; color: var(--gray-dark); }
+
+    /* CONTACT */
+    .contact { padding: 100px 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+    .contact-left .section-title { font-size: 40px; }
+    .contact-detail { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 22px; }
+    .contact-icon { font-size: 16px; color: var(--gold-dark); flex-shrink: 0; margin-top: 2px; }
+    .contact-info-label { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 4px; }
+    .contact-info-value { font-size: 13px; font-weight: 300; color: var(--black); line-height: 1.6; }
+    .jotform-wrap { position: relative; border-left: 1px solid var(--gray-light); padding-left: 48px; }
+    .jotform-wrap::before { content: ''; position: absolute; top: 0; left: -1px; width: 1px; height: 60px; background: var(--gold); }
+    .jotform-wrap iframe { border: none !important; width: 100% !important; min-height: 760px; background: transparent; display: block; }
+    /* Hide JotForm branding bar if present */
+    .jotform-wrap .formFooter, .jotform-wrap [class*="formFooter"] { display: none !important; }
+
+    /* INSTAGRAM */
+    .instagram { padding: 80px 0; background: var(--white); text-align: center; }
+    .instagram .section-eyebrow { display: block; margin-bottom: 12px; }
+    .instagram-handle { font-family: var(--font-serif); font-size: 28px; font-weight: 300; margin-bottom: 40px; }
+    .instagram-handle a { color: var(--gold-dark); }
+    .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
+    .insta-item { aspect-ratio: 1; overflow: hidden; cursor: pointer; }
+    .insta-item-inner { width: 100%; height: 100%; transition: transform 0.5s ease, opacity 0.3s; }
+    .insta-item:hover .insta-item-inner { transform: scale(1.08); opacity: 0.85; }
+
+    /* INSTAGRAM PANEL */
+    .ig-panel { background: var(--black); padding: 80px 0 0; }
+    .ig-panel-header { text-align: center; margin-bottom: 48px; }
+    .ig-panel-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
+    .ig-panel-handle { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 60px); font-weight: 300; color: var(--white); letter-spacing: -0.01em; line-height: 1; }
+    .ig-panel-handle a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .ig-panel-handle a:hover { color: var(--gold); }
+    .ig-panel-sub { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; margin-top: 12px; }
+    .ig-reels-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+    .ig-reel { position: relative; overflow: hidden; cursor: pointer; }
+    .ig-reel-img { aspect-ratio: 9/16; overflow: hidden; }
+    .ig-reel-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; filter: brightness(0.88); }
+    .ig-reel:hover .ig-reel-img img { transform: scale(1.06); filter: brightness(0.7); }
+    .ig-reel-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 20px; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 50%); opacity: 0; transition: opacity 0.35s ease; }
+    .ig-reel:hover .ig-reel-overlay { opacity: 1; }
+    .ig-reel-label { font-family: var(--font-serif); font-size: 15px; color: var(--white); line-height: 1.3; }
+    .ig-reel-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.18); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.35s ease; }
+    .ig-reel:hover .ig-reel-icon { opacity: 1; }
+    .ig-reel-icon svg { width: 18px; height: 18px; fill: white; }
+    .ig-cta-bar { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 36px 0 52px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+    .ig-cta-bar-text { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .ig-cta-btn { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); border: 1px solid rgba(255,255,255,0.3); padding: 13px 28px; text-decoration: none; transition: background 0.25s, border-color 0.25s, color 0.25s; }
+    .ig-cta-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
+    .ig-cta-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* FOOTER */
+    .footer { background: var(--black); color: var(--white); padding: 72px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.6fr 1.2fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-logo { font-family: var(--font-serif); font-size: 28px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 12px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.6); transition: border-color 0.2s, color 0.2s; cursor: pointer; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col-title { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-enquire-item { margin-bottom: 18px; }
+    .footer-enquire-label { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 5px; }
+    .footer-enquire-value { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .newsletter-field { display: flex; border-bottom: 1px solid rgba(255,255,255,0.2); margin-top: 8px; }
+    .newsletter-field input { flex: 1; background: transparent; border: none; outline: none; font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: var(--white); padding: 10px 0; }
+    .newsletter-field input::placeholder { color: rgba(255,255,255,0.3); }
+    .newsletter-field button { font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); padding: 10px 0 10px 12px; }
+    .footer-bottom { padding: 22px 0; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom-copy { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.28); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.28); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+
+    /* Tablet — 1024px */
+    @media (max-width: 1024px) {
+      .container { padding: 0 40px; }
+      .about-inner { gap: 48px; }
+      .contact-grid { gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-step:nth-child(1) { border-left: none; }
+      .process-step:nth-child(3) { border-left: none; }
+      .process-step:nth-child(3), .process-step:nth-child(4) { border-top: 1px solid var(--gray-light); }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ig-reels-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Mobile — 768px */
+    @media (max-width: 768px) {
+      :root { --nav-h: 60px; }
+      .container { padding: 0 24px; }
+
+      /* NAV */
+      .nav-inner { padding: 0 24px; }
+
+      /* HERO */
+      .slide-content { padding: 0 24px 60px; max-width: 100%; }
+      .slide-label { font-size: 8px; }
+      .slide-title { font-size: clamp(32px, 9vw, 54px); }
+      .slide-desc { font-size: 12px; display: none; }
+      .slider-prev { left: 12px; }
+      .slider-next { right: 12px; }
+      .slider-dots { bottom: 24px; right: 24px; }
+
+      /* ABOUT */
+      .about { padding: 64px 0; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { aspect-ratio: 16/9; }
+      .section-title { font-size: clamp(26px, 6vw, 40px); }
+      .awards-badges { gap: 20px; }
+      .award-badge-icon { width: 72px; height: 72px; }
+      .award-badge-wide { width: 110px; }
+
+      /* PROJECTS */
+      .projects { padding: 60px 0 80px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card-img { aspect-ratio: 16/9; }
+
+      /* QUOTE */
+      .intro-quote { padding: 60px 24px; }
+      .intro-quote blockquote { font-size: clamp(20px, 5vw, 30px); }
+
+      /* TESTIMONIALS */
+      .testimonials { padding: 60px 0; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      /* PROCESS */
+      .process { padding: 60px 0; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step { border-left: none; border-top: 1px solid var(--gray-light); padding: 28px 0; }
+      .process-step:first-child { border-top: none; }
+
+      /* CONTACT */
+      .contact { padding: 60px 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .jotform-wrap { border-left: none; padding-left: 0; border-top: 1px solid var(--gray-light); padding-top: 40px; }
+      .jotform-wrap::before { top: -1px; left: 0; width: 60px; height: 1px; background: var(--gold); }
+      .jotform-wrap iframe { min-height: 680px; }
+
+      /* INSTAGRAM PANEL */
+      .ig-panel { padding: 60px 0 0; }
+      .ig-panel-handle { font-size: 36px; }
+      .ig-reels-grid { grid-template-columns: repeat(2, 1fr); }
+      .ig-cta-bar { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px 40px; }
+
+      /* FOOTER */
+      .footer { padding-top: 52px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-bottom-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+    }
+
+    /* Small mobile — 480px */
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+
+      /* NAV */
+      .nav-inner { padding: 0 18px; }
+
+      /* HERO */
+      .slide-title { font-size: clamp(28px, 10vw, 42px); }
+      .slider-prev, .slider-next { width: 36px; height: 36px; font-size: 14px; }
+
+      /* AWARDS */
+      .awards-badges { gap: 16px; }
+      .award-badge-icon { width: 60px; height: 60px; }
+      .award-badge-wide { width: 90px; }
+      .award-badge-label { font-size: 8px; max-width: 70px; }
+
+      /* INSTAGRAM */
+      .ig-reels-grid { grid-template-columns: repeat(2, 1fr); }
+      .ig-reel-overlay { opacity: 1; }
+      .ig-reel-icon { opacity: 1; }
+
+      /* FOOTER */
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom-links { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="nav-logo">Kintsu<span>.</span></a>
+      <a href="https://wa.me/6580172916" target="_blank" rel="noopener noreferrer" class="nav-contact-btn">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="slide active">
+      <div class="slide-bg slide-bg-1"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Featured Project · HDB BTO · Sengkang</span>
+        <h1 class="slide-title">Scandinavian<br>Oasis</h1>
+        <p class="slide-desc">Swathed in clean oak lines and indirect warmth, this four-bedroom sanctuary in Sengkang redefines what a BTO home can feel like.</p>
+        <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="link-arrow">Read More</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg slide-bg-2"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Featured Project · Condo · Tampines</span>
+        <h1 class="slide-title">Timeless<br>Curvature</h1>
+        <p class="slide-desc">Arched doorways and soft joinery dissolve the hard edges of this Tampines condo into a Nordic dwelling of exceptional calm.</p>
+        <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="link-arrow">Read More</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg slide-bg-3"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Featured Project · HDB Resale · Buona Vista</span>
+        <h1 class="slide-title">Emerald<br>Sophistication</h1>
+        <p class="slide-desc">Bold emerald tones, burnished brass handles, and cane weave bring mid-century richness to a couple's first home in Buona Vista.</p>
+        <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="link-arrow">Read More</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg slide-bg-4"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <span class="slide-label">Featured Project · Executive HDB · Queenstown</span>
+        <h1 class="slide-title">Grounded<br>by Earth</h1>
+        <p class="slide-desc">Micro-cement surfaces, handmade ceramics, and wabi-sabi imperfection give this Queenstown executive flat a quiet, grounded beauty.</p>
+        <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="link-arrow">Read More</a>
+      </div>
+    </div>
+    <button class="slider-prev" aria-label="Previous slide">&#8592;</button>
+    <button class="slider-next" aria-label="Next slide">&#8594;</button>
+    <div class="slider-dots">
+      <div class="dot active" aria-label="Go to slide 1"></div>
+      <div class="dot" aria-label="Go to slide 2"></div>
+      <div class="dot" aria-label="Go to slide 3"></div>
+      <div class="dot" aria-label="Go to slide 4"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <div class="about-inner">
+        <div>
+          <p class="section-eyebrow">About Kintsu Interior</p>
+          <h2 class="section-title">Award-Winning Interior Design Studio in Singapore</h2>
+          <p class="section-body">Founded on the philosophy of kintsugi — the Japanese art of repairing with gold — Kintsu Interior transforms spaces into living expressions of character and care. We believe every home carries a story, and our role is to help that story shine.</p>
+          <p class="section-body">From Japandi tranquillity to Scandinavian warmth, our team of dedicated designers works hand-in-hand with each client to craft spaces that are as functional as they are beautiful.</p>
+          <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="btn-cta">View Our Story</a>
+
+          <!-- REAL AWARDS SECTION -->
+          <div class="awards-strip">
+            <div class="awards-strip-label">Our Achievements &amp; Accreditations</div>
+            <div class="awards-badges">
+
+              <!-- Award 1: Best Interior Design 2025 -->
+              <div class="award-badge">
+                <img src="award-1.avif" class="award-badge-icon" alt="Best Interior Design 2025" />
+                <div class="award-badge-label">Best Interior Design 2025</div>
+              </div>
+
+              <!-- Award 2: Singapore SME Leadership & Achievement Awards 2026/2027 -->
+              <div class="award-badge">
+                <img src="award-2.avif" class="award-badge-icon" alt="Singapore SME Leadership &amp; Achievement Awards 2026/2027" />
+                <div class="award-badge-label">Singapore SME Leadership Award 2026/27</div>
+              </div>
+
+              <!-- Award 3: Successful Entrepreneur / Business Trust -->
+              <div class="award-badge">
+                <img src="award-3.avif" class="award-badge-icon" alt="Business Trust 2026" />
+                <div class="award-badge-label">Business Trust 2026</div>
+              </div>
+
+              <!-- Excel Hardware Preferred Partner -->
+              <div class="award-badge">
+                <img src="footer_epp_preferred_partner_logo.jpg" class="award-badge-icon award-badge-wide" alt="Excel Hardware Preferred Partner (Designers)" />
+                <div class="award-badge-label">Excel Hardware<br>Preferred Partner</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="about-image"><div class="about-image-inner"><img src="portfolio_302A_thumbnail.jpg" alt="Kintsu Interior – Scandinavian Living Room" /></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Our Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-card-img"><div class="project-card-img-inner"><img src="portfolio_302A_thumbnail.jpg" alt="302A Scandinavian – Living Room" /></div></div>
+          <div class="project-card-body">
+            <p class="project-type">HDB BTO · 4-Bedroom · Sengkang</p>
+            <h3 class="project-name">302A Scandinavian</h3>
+            <p class="project-desc">Oak finishes, fluted panels, and warm indirect lighting breathe serenity into this four-bedroom family home.</p>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="project-link">Read More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-img"><div class="project-card-img-inner"><img src="portfolio_111C_thumbnail.jpg" alt="111C Nordic Curves – Feature Wall" /></div></div>
+          <div class="project-card-body">
+            <p class="project-type">Condo · 3-Bedroom · Tampines</p>
+            <h3 class="project-name">111C Nordic Curves</h3>
+            <p class="project-desc">Arched doorways, curved joinery, and ambient light transform this Tampines condo into a Nordic-inspired sanctuary.</p>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="project-link">Read More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-img"><div class="project-card-img-inner"><img src="portfolio_61B_thumbnail.png" alt="61B Emerald Mid-Century – Feature Corridor" /></div></div>
+          <div class="project-card-body">
+            <p class="project-type">HDB Resale · 2-Bedroom · Buona Vista</p>
+            <h3 class="project-name">61B Emerald Mid-Century</h3>
+            <p class="project-desc">Bold emerald tones and brass accents bring mid-century richness to this couple's first home.</p>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="project-link">Read More</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-img"><div class="project-card-img-inner"><img src="portfolio_132A_thumbnail.png" alt="132A Contemporary – Living & Dining" /></div></div>
+          <div class="project-card-body">
+            <p class="project-type">HDB Resale · 3-Bedroom · Clementi</p>
+            <h3 class="project-name">132A Contemporary Living</h3>
+            <p class="project-desc">Seamless handleless cabinetry and a waterfall island — as beautiful as it is functional.</p>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="project-link">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="projects-cta">
+        <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="btn-outline-dark">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="intro-quote">
+    <div class="container">
+      <blockquote>"Every flaw, reimagined as gold. Every space, restored to its fullest beauty."</blockquote>
+      <cite>— The Kintsu Philosophy</cite>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Client Reviews</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-body">"I strongly believe one of the traits to be a good designer is to have patience. I had Nat as a designer and he is someone who has tons of it. He never made me feel rushed and took time to understand exactly what we wanted."</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-name">Edmund T.</div>
+          <div class="testimonial-project">4-Room BTO · Sengkang</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-body">"Jay completely transformed how we thought about our living space. He pushed us toward the arch doorway idea — we were nervous at first. Now it's the very first thing every guest comments on when they visit."</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-name">Priya &amp; Arun K.</div>
+          <div class="testimonial-project">3-Room Condo · Tampines</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-body">"AC made the whole renovation feel effortless. Communication was always prompt, timelines were met without compromise, and the final result went far beyond what we had imagined. The emerald kitchen is everything."</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-name">Sarah L.</div>
+          <div class="testimonial-project">2-Room Resale · Buona Vista</div>
+        </div>
+      </div>
+      <div class="testimonials-cta">
+        <a href="https://www.google.com/search?q=kintsu+interior&oq=kintsu+interior&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDwyBggCEEUYPDIGCAMQRRg80gEIMjcwMWowajSoAgCwAgE&sourceid=chrome&ie=UTF-8#" target="_blank" rel="noopener noreferrer" class="btn-outline-dark">View All Reviews</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">How We Work</span>
+        <h2 class="section-title">Our Process</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-step-title">Consultation</div>
+          <p class="process-step-body">We begin with a no-obligation call to understand your vision, lifestyle, and budget — and explore what's possible for your home.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-step-title">Concept Design</div>
+          <p class="process-step-body">Your designer presents moodboards, layout plans, and material palettes tailored to your style and space constraints.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-step-title">Renovation</div>
+          <p class="process-step-body">We manage all trades, timelines, and site visits. You receive regular updates — we handle every detail on the ground.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div class="process-step-title">Handover</div>
+          <p class="process-step-body">We walk you through every finish before handing over your keys. Our aftercare commitment doesn't stop at handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <p class="section-eyebrow">Get In Touch</p>
+          <h2 class="section-title">Start Your Renovation Journey</h2>
+          <p class="section-body">Whether you have a clear vision or a blank page, we'd love to hear about your project. Drop us a message and one of our designers will follow up within 24 hours.</p>
+          <div class="contact-detail">
+            <span class="contact-icon">✉</span>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value"><a href="mailto:create@kintsuinterior.com">create@kintsuinterior.com</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-icon">☎</span>
+            <div>
+              <div class="contact-info-label">Phone / WhatsApp</div>
+              <div class="contact-info-value"><a href="https://wa.me/6580172916" target="_blank" rel="noopener noreferrer">+65 8017 2916</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-icon">◎</span>
+            <div>
+              <div class="contact-info-label">Showroom</div>
+              <div class="contact-info-value">Singapore<br>By appointment only</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-icon">⏱</span>
+            <div>
+              <div class="contact-info-label">Response Guarantee</div>
+              <div class="contact-info-value">Within 24 hours</div>
+            </div>
+          </div>
+        </div>
+        <div class="jotform-wrap">
+          <script type="text/javascript" src="https://form.jotform.com/jsform/261154810587055" crossorigin="anonymous"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INSTAGRAM REELS PANEL -->
+  <section class="ig-panel">
+    <div class="container">
+      <div class="ig-panel-header">
+        <span class="ig-panel-eyebrow">Follow Along</span>
+        <div class="ig-panel-handle">
+          <a href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer">@kintsu.interior</a>
+        </div>
+        <p class="ig-panel-sub">Recent reels &amp; projects on Instagram</p>
+      </div>
+    </div>
+
+    <div class="ig-reels-grid">
+
+      <a class="ig-reel" href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer">
+        <div class="ig-reel-img">
+          <img src="portfolio_111C_thumbnail.jpg" alt="111C Nordic Curves" />
+        </div>
+        <div class="ig-reel-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="ig-reel-overlay">
+          <div class="ig-reel-label">111C Nordic Curves<br>Condo · Tampines</div>
+        </div>
+      </a>
+
+      <a class="ig-reel" href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer">
+        <div class="ig-reel-img">
+          <img src="portfolio_302A_thumbnail.jpg" alt="302A Scandinavian" />
+        </div>
+        <div class="ig-reel-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="ig-reel-overlay">
+          <div class="ig-reel-label">302A Scandinavian<br>HDB BTO · Sengkang</div>
+        </div>
+      </a>
+
+      <a class="ig-reel" href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer">
+        <div class="ig-reel-img">
+          <img src="portfolio_61B_thumbnail.png" alt="61B Emerald Mid-Century" />
+        </div>
+        <div class="ig-reel-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="ig-reel-overlay">
+          <div class="ig-reel-label">61B Emerald Mid-Century<br>HDB Resale · Buona Vista</div>
+        </div>
+      </a>
+
+      <a class="ig-reel" href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer">
+        <div class="ig-reel-img">
+          <img src="portfolio_132A_thumbnail.png" alt="132A Contemporary Living" />
+        </div>
+        <div class="ig-reel-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="ig-reel-overlay">
+          <div class="ig-reel-label">132A Contemporary Living<br>HDB Resale · Clementi</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="container">
+      <div class="ig-cta-bar">
+        <span class="ig-cta-bar-text">See all our latest projects &amp; process reels</span>
+        <a href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer" class="ig-cta-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Kintsu<span>.</span></div>
+          <p class="footer-tagline">Your independent lens on Singapore interior design. Spaces restored. Stories retold. Beauty made whole.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/kintsu.interior" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">IG</a>
+            <a href="https://www.tiktok.com/@kintsu.interior" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok">TT</a>
+            <a href="https://www.facebook.com/kintsu.interior" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">FB</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <div class="footer-links">
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">About Us</a>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Our Projects</a>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Styles</a>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">The Team</a>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Accreditations</a>
+            <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Journal</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Enquire</div>
+          <div class="footer-enquire-item">
+            <div class="footer-enquire-label">Phone / WhatsApp</div>
+            <div class="footer-enquire-value">+65 8017 2916</div>
+          </div>
+          <div class="footer-enquire-item">
+            <div class="footer-enquire-label">Email</div>
+            <div class="footer-enquire-value">create@kintsuinterior.com</div>
+          </div>
+          <div class="footer-enquire-item">
+            <div class="footer-enquire-label">Showroom</div>
+            <div class="footer-enquire-value">Singapore<br>By appointment only</div>
+          </div>
+          <!-- Awards in footer -->
+          <div class="footer-enquire-item" style="margin-top:24px;">
+            <div class="footer-enquire-label">Our Awards</div>
+            <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
+              <div style="background:rgba(201,162,39,0.12);border:1px solid rgba(201,162,39,0.3);padding:6px 10px;border-radius:2px;">
+                <div style="font-size:8px;font-weight:700;letter-spacing:.08em;color:#c9a227;">BEST INTERIOR DESIGN</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.5);">2025</div>
+              </div>
+              <div style="background:rgba(201,162,39,0.12);border:1px solid rgba(201,162,39,0.3);padding:6px 10px;border-radius:2px;">
+                <div style="font-size:8px;font-weight:700;letter-spacing:.08em;color:#c9a227;">BUSINESS TRUST</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.5);">2026</div>
+              </div>
+              <div style="background:rgba(201,162,39,0.12);border:1px solid rgba(201,162,39,0.3);padding:6px 10px;border-radius:2px;">
+                <div style="font-size:8px;font-weight:700;letter-spacing:.08em;color:#c9a227;">SME LEADERSHIP</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.5);">2026/2027</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Subscribe</div>
+          <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:20px;">Project spotlights, renovation tips, and design ideas — delivered to your inbox.</p>
+          <div class="newsletter-field">
+            <input type="email" placeholder="Your email address" />
+            <button>Subscribe</button>
+          </div>
+          <!-- Kintsu contact CTA -->
+          <div style="margin-top:32px;padding:20px;border:1px solid rgba(201,162,39,0.3);">
+            <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#c9a227;margin-bottom:8px;">Free Consultation</div>
+            <div style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:14px;">Comment "KEYS" to meet one of our IDs today.</div>
+            <a href="https://wa.me/6580172916" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c9a227;border-bottom:1px solid rgba(201,162,39,0.4);padding-bottom:2px;">WhatsApp Us →</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-copy">© 2025 Kintsu Interior Studio Pte Ltd · Singapore</div>
+        <div class="footer-bottom-links">
+          <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      let current = 0;
+      const slides = document.querySelectorAll('.slide');
+      const dots   = document.querySelectorAll('.dot');
+      let timer;
+
+      function goToSlide(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = ((n % slides.length) + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        clearInterval(timer);
+        timer = setInterval(function () { goToSlide(current + 1); }, 5500);
+      }
+
+      // Wire slider buttons via addEventListener — no inline handlers
+      document.querySelector('.slider-prev').addEventListener('click', function () { goToSlide(current - 1); });
+      document.querySelector('.slider-next').addEventListener('click', function () { goToSlide(current + 1); });
+
+      // Wire dot clicks
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goToSlide(i); });
+      });
+
+      // Start autoplay
+      timer = setInterval(function () { goToSlide(current + 1); }, 5500);
+    })();
+  </script>
+</body>
+</html>

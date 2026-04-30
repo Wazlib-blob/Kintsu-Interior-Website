@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kintsu-interior-website.vercel.app/sitemap.xml

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://kintsu-interior-website.vercel.app/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kintsu-interior-website.vercel.app/portfolio_111C_thumbnail.jpg</image:loc>
+      <image:title>111C Tengah Plantation — Scandinavian Interior</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kintsu-interior-website.vercel.app/portfolio_61B_thumbnail.jpg</image:loc>
+      <image:title>61B Strathmore Avenue — Mid-Century Interior</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kintsu-interior-website.vercel.app/portfolio_132A_thumbnail.jpg</image:loc>
+      <image:title>132A Tengah Garden Interior</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kintsu-interior-website.vercel.app/portfolio_302A_thumbnail.jpg</image:loc>
+      <image:title>302A Punggol Place Interior</image:title>
+    </image:image>
+  </url>
+</urlset>

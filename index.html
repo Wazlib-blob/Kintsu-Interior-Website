@@ -158,6 +158,9 @@
     .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: var(--font-serif); font-size: 26px; font-weight: 400; color: var(--white); letter-spacing: 0.12em; text-transform: uppercase; }
     .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.25s; }
+    .nav-link:hover { color: var(--gold); }
     .nav-contact-btn { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.35); padding: 9px 24px; transition: background 0.25s, border-color 0.25s, color 0.25s; }
     .nav-contact-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
 
@@ -470,7 +473,10 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="https://www.kintsuinterior.com" target="_blank" rel="noopener noreferrer" class="nav-logo">Kintsu<span>.</span></a>
-      <a href="https://wa.me/6580172916" target="_blank" rel="noopener noreferrer" class="nav-contact-btn">Contact</a>
+      <div class="nav-links">
+        <a href="/team" class="nav-link">Team</a>
+        <a href="https://wa.me/6580172916" target="_blank" rel="noopener noreferrer" class="nav-contact-btn">Contact</a>
+      </div>
     </div>
   </nav>
 

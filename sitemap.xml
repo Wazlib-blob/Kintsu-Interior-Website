@@ -40,5 +40,9 @@
       <image:loc>https://kintsu-interior-website.vercel.app/team_jay.jpg</image:loc>
       <image:title>Jay — Creative Designer at Kintsu Interior</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://kintsu-interior-website.vercel.app/team_averyl.jpg</image:loc>
+      <image:title>Averyl — Creative Designer at Kintsu Interior</image:title>
+    </image:image>
   </url>
 </urlset>

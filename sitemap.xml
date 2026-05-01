@@ -29,6 +29,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
+      <image:loc>https://kintsu-interior-website.vercel.app/team_nathanael.jpg</image:loc>
+      <image:title>Nathanael — Creative Director and Founder of Kintsu Interior Studio</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://kintsu-interior-website.vercel.app/team_howard.jpg</image:loc>
       <image:title>Howard — Creative Manager and Designer at Kintsu Interior</image:title>
     </image:image>

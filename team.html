@@ -118,6 +118,8 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .team-member { grid-template-columns: 1fr; gap: 40px; max-width: 480px; }
+      .team-member.reverse .team-photo { order: 0; }
+      .team-member.reverse .team-info { order: 0; }
       .team-photo { aspect-ratio: 3/4; }
       .team-info .stats { gap: 28px; }
     }
